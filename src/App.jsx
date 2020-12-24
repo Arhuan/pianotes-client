@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
-import HomePage from './pages/home/HomePage';
+import Layout, { Content, Footer } from 'antd/lib/layout/layout';
+import NavigationComponent from './components/navigation/NavigationComponent';
+import Router from './routes/Router';
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <Layout className="App">
+      <NavigationComponent />
+      <Content>
+        <Router />
+      </Content>
+      <Footer />
+    </Layout>
   );
 }
 

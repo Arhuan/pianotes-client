@@ -10,6 +10,7 @@ import {
 import { Header } from 'antd/lib/layout/layout';
 
 import './NavigationComponent.css';
+import { Link } from 'react-router-dom';
 
 class NavigationComponent extends React.Component {
   constructor(props) {
@@ -19,8 +20,8 @@ class NavigationComponent extends React.Component {
     };
   }
 
-  handleClick = (e) => {
-    this.setState({ current: e.key });
+  handleClick = (event) => {
+    this.setState({ current: event.key });
   };
 
   render() {
@@ -37,8 +38,12 @@ class NavigationComponent extends React.Component {
             mode="horizontal"
             onClick={this.handleClick}
           >
-            <Menu.Item key="home" icon={<HomeOutlined />} />
-            <Menu.Item key="ranking" icon={<BarChartOutlined />} />
+            <Menu.Item key="home" icon={<HomeOutlined />}>
+              <Link to="/" />
+            </Menu.Item>
+            <Menu.Item key="ranking" icon={<BarChartOutlined />}>
+              <Link to="/ranking" />
+            </Menu.Item>
           </Menu>
           <Menu
             theme="light"
@@ -46,8 +51,12 @@ class NavigationComponent extends React.Component {
             mode="horizontal"
             onClick={this.handleClick}
           >
-            <Menu.Item key="settings" icon={<SettingOutlined />} />
-            <Menu.Item key="profile" icon={<UserOutlined />} />
+            <Menu.Item key="settings" icon={<SettingOutlined />}>
+              <Link to="/settings" />
+            </Menu.Item>
+            <Menu.Item key="profile" icon={<UserOutlined />}>
+              <Link to="/user" />
+            </Menu.Item>
           </Menu>
         </div>
       </Header>
