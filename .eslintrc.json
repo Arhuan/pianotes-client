@@ -9,5 +9,5 @@
     "node": true,
     "jest": true
   },
-  "parser": "react-scripts/node_modules/babel-eslint"
+  "parser": "babel-eslint"
 }

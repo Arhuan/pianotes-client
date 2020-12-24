@@ -1,0 +1,18 @@
+.nav-header {
+  display: flex;
+  background-color: white;
+}
+
+h1.ant-typography {
+  margin: 0;
+}
+
+.logo {
+  align-self: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
