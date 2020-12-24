@@ -17,6 +17,11 @@ h1.ant-typography {
   width: 100%;
 }
 
+.nav-menu > .ant-menu > .ant-menu-item {
+  margin: 0;
+  padding: 0 20px;
+}
+
 .nav-menu > .ant-menu > .ant-menu-item > .anticon {
   font-size: 1.1rem;
   margin: 0;

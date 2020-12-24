@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './NotesComponent.css';
+
 class NotesComponent extends React.Component {
   constructor(props) {
     super(props);
