@@ -6,7 +6,9 @@ function HomePage() {
   return (
     <div className="home-page">
       a tool to help you memorize musical notes for the piano
-      <NotesComponent />
+      <div className="notes-component">
+        <NotesComponent />
+      </div>
     </div>
   );
 }

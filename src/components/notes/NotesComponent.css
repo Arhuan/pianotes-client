@@ -1,7 +1,37 @@
-.notes-component {
-  height: 100%;
+.notes-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.notes-container {
-  height: 80%;
+.staff {
+  display: flex;
+  align-items: center;
+}
+
+.treble-clef {
+  width: 100px;
+  text-align: center;
+}
+
+.bass-clef {
+  width: 100px;
+  text-align: center;
+}
+
+.bass-clef > img {
+  width: 60%;
+}
+
+.staff-notes {
+  width: 100%;
+}
+
+.notes-line {
+  background-color: grey;
+  margin: 0.2rem 0;
+}
+
+.notes-col {
+  flex-grow: 1;
+  text-align: center;
 }

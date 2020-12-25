@@ -29,7 +29,7 @@ class NavigationComponent extends React.Component {
     return (
       <Header className="nav-header">
         <Typography.Title className="logo" underline>
-          pianotes
+          logo here
         </Typography.Title>
         <div className="nav-menu">
           <Menu
