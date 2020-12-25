@@ -1,11 +1,9 @@
 import React from 'react';
 
-import { Col, Row } from 'antd';
-
 import './NotesComponent.css';
 import TrebleClef from '../../images/treble-clef.svg';
 import BassClef from '../../images/bass-clef.svg';
-// import MusicNote from '../../images/musical-note.svg';
+import StaffComponent from '../staff/StaffComponent';
 
 class NotesComponent extends React.Component {
   constructor(props) {
@@ -19,173 +17,18 @@ class NotesComponent extends React.Component {
     const { currNote } = this.state;
     return (
       <div className="notes-container">
+        {currNote}
         <div className="staff">
           <div className="treble-clef">
             <img src={TrebleClef} alt="Treble Clef" />
           </div>
-          <div className="staff-notes">
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-          </div>
+          <StaffComponent />
         </div>
         <div className="staff">
           <div className="bass-clef">
             <img src={BassClef} alt="Bass Clef" />
           </div>
-          <div className="staff-notes">
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row className="strikethrough">
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">{currNote}</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-            <Row>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-              <Col className="notes-col">o</Col>
-            </Row>
-          </div>
+          <StaffComponent />
         </div>
       </div>
     );
