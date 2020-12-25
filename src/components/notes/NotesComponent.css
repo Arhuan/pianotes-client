@@ -26,12 +26,18 @@
   width: 100%;
 }
 
-.notes-line {
-  background-color: grey;
-  margin: 0.2rem 0;
-}
-
 .notes-col {
   flex-grow: 1;
   text-align: center;
+}
+
+.strikethrough {
+  background: repeating-linear-gradient(
+    180deg,
+    black 0%,
+    black 100%
+  );
+  background-size: 100% 2px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
