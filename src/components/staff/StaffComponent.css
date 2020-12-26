@@ -13,3 +13,13 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.cursor {
+  background: linear-gradient(
+    rgba(128, 128, 128, 0.4),
+    rgba(128, 128, 128, 0.4)
+  );
+  background-size: 2px 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
