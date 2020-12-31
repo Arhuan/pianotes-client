@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './NotesComponent.css';
+import { Divider } from 'antd';
 import TrebleClef from '../../images/treble-clef.svg';
 import BassClef from '../../images/bass-clef.svg';
 import StaffComponent from '../staff/StaffComponent';
@@ -24,6 +25,7 @@ class NotesComponent extends React.Component {
           </div>
           <StaffComponent />
         </div>
+        <Divider />
         <div className="staff">
           <div className="bass-clef">
             <img src={BassClef} alt="Bass Clef" />
