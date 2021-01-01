@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
 
 import './StaffComponent.css';
@@ -36,12 +36,26 @@ const BASS_NOTES = [
 ];
 
 class StaffComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // eslint-disable-next-line react/no-unused-state
-      currentIndex: 0,
-    };
+  getRows() {
+    const rows = [];
+    const notes = BASS_NOTES;
+    for (let i = 0; i < notes.length; i += 1) {
+      rows.push(<Row>{this.getCols()}</Row>);
+    }
+    return rows;
+  }
+
+  getCols() {
+    const cols = [];
+    const { currentIndex, maxNotes } = this.props;
+    for (let i = 0; i < maxNotes; i += 1) {
+      if (i === currentIndex) {
+        cols.push(<Col className="notes-col cursor">0</Col>);
+      } else {
+        cols.push(<Col className="notes-col">0</Col>);
+      }
+    }
+    return cols;
   }
 
   render() {
@@ -128,5 +142,14 @@ class StaffComponent extends React.Component {
     );
   }
 }
+
+StaffComponent.defaultProps = {
+  maxNotes: 5,
+};
+
+StaffComponent.propTypes = {
+  currentIndex: PropTypes.number.isRequired,
+  maxNotes: PropTypes.number,
+};
 
 export default StaffComponent;

@@ -23,7 +23,7 @@ class NotesComponent extends React.Component {
           <div className="treble-clef">
             <img src={TrebleClef} alt="Treble Clef" />
           </div>
-          <StaffComponent />
+          <StaffComponent currentIndex={currNote} maxNotes={5} />
         </div>
         <Divider />
         <div className="staff">
