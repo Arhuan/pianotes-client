@@ -40,10 +40,14 @@ class StaffComponent extends React.Component {
 
     for (let i = 0; i < notes.length; i += 1) {
       if (i % 2 === 0) {
-        rows.push(<Row key={notes[i]}>{this.getCols(notes[i])}</Row>);
+        rows.push(
+          <Row key={notes[i]} className="staff-row">
+            {this.getCols(notes[i])}
+          </Row>
+        );
       } else {
         rows.push(
-          <Row key={notes[i]} className="strikethrough">
+          <Row key={notes[i]} className="staff-row strikethrough">
             {this.getCols(notes[i])}
           </Row>
         );
@@ -55,22 +59,28 @@ class StaffComponent extends React.Component {
   getCols(rowNote) {
     const cols = [];
     const { currentIndex, maxNotes, notes, useBassNotes } = this.props;
+    const staffType = useBassNotes ? 'bass' : 'treble';
 
     for (let i = 0; i < maxNotes; i += 1) {
       if (i === currentIndex) {
         cols.push(
-          <Col key={`${rowNote}-col-${i}`} className="notes-col cursor">
-            {notes[i].isBassNote === useBassNotes && notes[i].note === rowNote
-              ? 'O'
-              : 'O'}
+          <Col
+            key={`${staffType}-${rowNote}-col-${i}`}
+            className="staff-col cursor"
+          >
+            {notes[i].isBassNote === useBassNotes &&
+            notes[i].note === rowNote ? (
+              <div className="note" />
+            ) : null}
           </Col>
         );
       } else {
         cols.push(
-          <Col key={`${rowNote}-col-${i}`} className="notes-col">
-            {notes[i].isBassNote === useBassNotes && notes[i].note === rowNote
-              ? 'O'
-              : 'O'}
+          <Col key={`${staffType}-${rowNote}-col-${i}`} className="staff-col">
+            {notes[i].isBassNote === useBassNotes &&
+            notes[i].note === rowNote ? (
+              <div className="note" />
+            ) : null}
           </Col>
         );
       }

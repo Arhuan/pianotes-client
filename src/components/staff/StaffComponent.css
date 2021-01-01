@@ -2,9 +2,21 @@
   width: 100%;
 }
 
-.notes-col {
+.staff-row {
+  min-height: 1em;
+}
+
+.staff-col {
   flex-grow: 1;
   text-align: center;
+}
+
+.note {
+  background-image: url('../../images/musical-note.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 .strikethrough {
