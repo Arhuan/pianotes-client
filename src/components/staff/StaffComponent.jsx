@@ -40,7 +40,11 @@ class StaffComponent extends React.Component {
     const rows = [];
     const notes = BASS_NOTES;
     for (let i = 0; i < notes.length; i += 1) {
-      rows.push(<Row>{this.getCols()}</Row>);
+      if (i % 2 === 0) {
+        rows.push(<Row>{this.getCols()}</Row>);
+      } else {
+        rows.push(<Row className="strikethrough">{this.getCols()}</Row>);
+      }
     }
     return rows;
   }
@@ -59,87 +63,7 @@ class StaffComponent extends React.Component {
   }
 
   render() {
-    return (
-      <div className="staff-notes">
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row className="strikethrough">
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row className="strikethrough">
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row className="strikethrough">
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row className="strikethrough">
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row className="strikethrough">
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-        <Row>
-          <Col className="notes-col cursor">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-          <Col className="notes-col">O</Col>
-        </Row>
-      </div>
-    );
+    return <div className="staff-notes">{this.getRows()}</div>;
   }
 }
 
