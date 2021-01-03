@@ -47,6 +47,12 @@ class NotesComponent extends React.Component {
     const charCode = event.which || event.keyCode;
     const charStr = String.fromCharCode(charCode);
 
+    this.setState({ commandLineText: charStr });
+
+    if (currNote >= notes.length) {
+      return;
+    }
+
     if (charStr.toUpperCase() === notes[currNote].note.charAt(0)) {
       if (staffCursorIndex + 1 === MAX_NOTES) {
         this.startIndex += MAX_NOTES;
@@ -68,8 +74,6 @@ class NotesComponent extends React.Component {
         });
       }
     }
-
-    this.setState({ commandLineText: charStr });
   };
 
   render() {

@@ -4,25 +4,56 @@
 
 .staff-row {
   min-height: 1em;
+  max-height: 1em;
+  height: 1em;
 }
 
 .staff-col {
   flex-grow: 1;
   text-align: center;
+  height: 100%;
 }
 
 .note {
-  background-image: url('../../images/musical-note.svg');
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
   height: 100%;
   width: 100%;
+}
+
+.note-svg {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: auto;
+
+  padding-left: 2%;
+  padding-right: 2%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  left: 0;
+  right: 0;
 }
 
 .strikethrough {
   background: repeating-linear-gradient(180deg, black 0%, black 100%);
   background-size: 100% 2px;
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+.strikethrough-top {
+  background: repeating-linear-gradient(180deg, black 0%, black 100%);
+  background-size: 100% 2px;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.strikethrough-bottom {
+  background: repeating-linear-gradient(180deg, black 0%, black 100%);
+  background-size: 100% 2px;
+  background-position: bottom;
   background-repeat: no-repeat;
 }
 
