@@ -30,6 +30,10 @@ const TEST_NOTES = [
     isBassNote: true,
   },
   {
+    note: 'A-3',
+    isBassNote: true,
+  },
+  {
     note: 'G-2',
     isBassNote: true,
   },
@@ -59,6 +63,7 @@ class NotesComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      staffCursorIndex: 0,
       currNote: 0,
       notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
       commandLineText: '',
@@ -66,34 +71,40 @@ class NotesComponent extends React.Component {
   }
 
   handleKeyPress = (event) => {
-    const { currNote } = this.state;
-
-    if (currNote + 1 === MAX_NOTES) {
-      this.startIndex += MAX_NOTES;
-      this.endIndex += MAX_NOTES;
-
-      if (
-        this.startIndex >= TEST_NOTES.length ||
-        this.endIndex > TEST_NOTES.length
-      ) {
-        return;
-      }
-
-      this.setState({
-        currNote: 0,
-        notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
-      });
-    } else {
-      this.setState({ currNote: currNote + 1 });
-    }
-
+    const { staffCursorIndex, currNote } = this.state;
     const charCode = event.which || event.keyCode;
     const charStr = String.fromCharCode(charCode);
+
+    if (charStr.toUpperCase() === TEST_NOTES[currNote].note.charAt(0)) {
+      if (staffCursorIndex + 1 === MAX_NOTES) {
+        this.startIndex += MAX_NOTES;
+        this.endIndex += MAX_NOTES;
+
+        if (
+          this.startIndex >= TEST_NOTES.length ||
+          this.endIndex > TEST_NOTES.length
+        ) {
+          return;
+        }
+
+        this.setState({
+          staffCursorIndex: 0,
+          currNote: currNote + 1,
+          notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
+        });
+      } else {
+        this.setState({
+          staffCursorIndex: staffCursorIndex + 1,
+          currNote: currNote + 1,
+        });
+      }
+    }
+
     this.setState({ commandLineText: charStr });
   };
 
   render() {
-    const { notes, currNote, commandLineText } = this.state;
+    const { notes, staffCursorIndex, commandLineText } = this.state;
 
     return (
       <div className="notes-container">
@@ -103,7 +114,7 @@ class NotesComponent extends React.Component {
           </div>
           <StaffComponent
             notes={notes}
-            currentIndex={currNote}
+            currentIndex={staffCursorIndex}
             maxNotes={MAX_NOTES}
           />
         </div>
@@ -115,7 +126,7 @@ class NotesComponent extends React.Component {
           <StaffComponent
             useBassNotes
             notes={notes}
-            currentIndex={currNote}
+            currentIndex={staffCursorIndex}
             maxNotes={MAX_NOTES}
           />
         </div>
