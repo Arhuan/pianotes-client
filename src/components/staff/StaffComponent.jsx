@@ -39,19 +39,14 @@ class StaffComponent extends React.Component {
     const notes = useBassNotes ? BASS_NOTES : TREBLE_NOTES;
 
     for (let i = 0; i < notes.length; i += 1) {
-      if (i % 2 === 0) {
-        rows.push(
-          <Row key={notes[i]} className="staff-row">
-            {this.getCols(notes[i])}
-          </Row>
-        );
-      } else {
-        rows.push(
-          <Row key={notes[i]} className="staff-row strikethrough">
-            {this.getCols(notes[i])}
-          </Row>
-        );
-      }
+      rows.push(
+        <Row
+          key={notes[i]}
+          className={`staff-row ${i % 2 === 0 ? 'strikethrough' : ''}`}
+        >
+          {this.getCols(notes[i])}
+        </Row>
+      );
     }
     return rows;
   }
@@ -62,28 +57,16 @@ class StaffComponent extends React.Component {
     const staffType = useBassNotes ? 'bass' : 'treble';
 
     for (let i = 0; i < maxNotes; i += 1) {
-      if (i === currentIndex) {
-        cols.push(
-          <Col
-            key={`${staffType}-${rowNote}-col-${i}`}
-            className="staff-col cursor"
-          >
-            {notes[i].isBassNote === useBassNotes &&
-            notes[i].note === rowNote ? (
-              <div className="note" />
-            ) : null}
-          </Col>
-        );
-      } else {
-        cols.push(
-          <Col key={`${staffType}-${rowNote}-col-${i}`} className="staff-col">
-            {notes[i].isBassNote === useBassNotes &&
-            notes[i].note === rowNote ? (
-              <div className="note" />
-            ) : null}
-          </Col>
-        );
-      }
+      cols.push(
+        <Col
+          key={`${staffType}-${rowNote}-col-${i}`}
+          className={`staff-col ${i === currentIndex ? 'cursor' : ''}`}
+        >
+          {notes[i].isBassNote === useBassNotes && notes[i].note === rowNote ? (
+            <div className="note" />
+          ) : null}
+        </Col>
+      );
     }
     return cols;
   }
