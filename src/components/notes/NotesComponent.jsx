@@ -1,10 +1,12 @@
 import React from 'react';
 
 import './NotesComponent.css';
-import { Divider } from 'antd';
+import { Divider, Input } from 'antd';
 import TrebleClef from '../../images/treble-clef.svg';
 import BassClef from '../../images/bass-clef.svg';
 import StaffComponent from '../staff/StaffComponent';
+
+const MAX_NOTES = 5;
 
 const TEST_NOTES = [
   {
@@ -27,29 +29,77 @@ const TEST_NOTES = [
     note: 'G-2',
     isBassNote: true,
   },
+  {
+    note: 'G-2',
+    isBassNote: true,
+  },
+  {
+    note: 'G-2',
+    isBassNote: true,
+  },
+  {
+    note: 'G-2',
+    isBassNote: true,
+  },
+  {
+    note: 'G-2',
+    isBassNote: true,
+  },
+  {
+    note: 'G-2',
+    isBassNote: true,
+  },
 ];
 
 class NotesComponent extends React.Component {
+  startIndex = 0;
+
+  endIndex = MAX_NOTES;
+
   constructor(props) {
     super(props);
     this.state = {
       currNote: 0,
+      notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
     };
   }
 
-  render() {
+  handleKeyPress = () => {
     const { currNote } = this.state;
+
+    if (currNote + 1 === MAX_NOTES) {
+      this.startIndex += MAX_NOTES;
+      this.endIndex += MAX_NOTES;
+
+      if (
+        this.startIndex >= TEST_NOTES.length ||
+        this.endIndex > TEST_NOTES.length
+      ) {
+        return;
+      }
+
+      this.setState({
+        currNote: 0,
+        notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
+      });
+    } else {
+      this.setState({ currNote: currNote + 1 });
+    }
+  };
+
+  render() {
+    const { notes, currNote } = this.state;
+
     return (
       <div className="notes-container">
-        {currNote}
         <div className="staff">
           <div className="treble-clef">
             <img src={TrebleClef} alt="Treble Clef" />
           </div>
           <StaffComponent
-            notes={TEST_NOTES}
+            notes={notes}
             currentIndex={currNote}
-            maxNotes={5}
+            maxNotes={MAX_NOTES}
           />
         </div>
         <Divider />
@@ -59,11 +109,12 @@ class NotesComponent extends React.Component {
           </div>
           <StaffComponent
             useBassNotes
-            notes={TEST_NOTES}
+            notes={notes}
             currentIndex={currNote}
-            maxNotes={5}
+            maxNotes={MAX_NOTES}
           />
         </div>
+        <Input onKeyDown={this.handleKeyPress} />
       </div>
     );
   }
