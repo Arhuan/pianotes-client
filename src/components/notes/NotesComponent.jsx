@@ -61,10 +61,11 @@ class NotesComponent extends React.Component {
     this.state = {
       currNote: 0,
       notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
+      commandLineText: '',
     };
   }
 
-  handleKeyPress = () => {
+  handleKeyPress = (event) => {
     const { currNote } = this.state;
 
     if (currNote + 1 === MAX_NOTES) {
@@ -85,10 +86,14 @@ class NotesComponent extends React.Component {
     } else {
       this.setState({ currNote: currNote + 1 });
     }
+
+    const charCode = event.which || event.keyCode;
+    const charStr = String.fromCharCode(charCode);
+    this.setState({ commandLineText: charStr });
   };
 
   render() {
-    const { notes, currNote } = this.state;
+    const { notes, currNote, commandLineText } = this.state;
 
     return (
       <div className="notes-container">
@@ -114,7 +119,14 @@ class NotesComponent extends React.Component {
             maxNotes={MAX_NOTES}
           />
         </div>
-        <Input onKeyDown={this.handleKeyPress} />
+        <Input
+          className="command-line"
+          size="large"
+          bordered={false}
+          onKeyPress={this.handleKeyPress}
+          value={commandLineText}
+          placeholder="Click here to begin"
+        />
       </div>
     );
   }

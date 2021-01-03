@@ -21,3 +21,16 @@
 .bass-clef > img {
   width: 60%;
 }
+
+.command-line {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.command-line::placeholder {
+  text-transform: none;
+}
+
+.command-line:focus::placeholder {
+  color: transparent;
+}
