@@ -42,7 +42,7 @@ class StaffComponent extends React.Component {
       rows.push(
         <Row
           key={notes[i]}
-          className={`staff-row ${i % 2 === 0 ? 'strikethrough' : ''}`}
+          className={`staff-row ${i % 2 !== 0 ? 'strikethrough' : ''}`}
         >
           {this.getCols(notes[i])}
         </Row>
