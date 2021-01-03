@@ -5,55 +5,9 @@ import { Divider, Input } from 'antd';
 import TrebleClef from '../../images/treble-clef.svg';
 import BassClef from '../../images/bass-clef.svg';
 import StaffComponent from '../staff/StaffComponent';
+import APIService from '../../services/APIService';
 
 const MAX_NOTES = 5;
-
-const TEST_NOTES = [
-  {
-    note: 'B-3',
-    isBassNote: true,
-  },
-  {
-    note: 'G-4',
-    isBassNote: false,
-  },
-  {
-    note: 'F-4',
-    isBassNote: false,
-  },
-  {
-    note: 'A-3',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-  {
-    note: 'A-3',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-  {
-    note: 'G-2',
-    isBassNote: true,
-  },
-];
 
 class NotesComponent extends React.Component {
   startIndex = 0;
@@ -65,32 +19,47 @@ class NotesComponent extends React.Component {
     this.state = {
       staffCursorIndex: 0,
       currNote: 0,
-      notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
+      notes: [],
+      staffNotes: [],
       commandLineText: '',
     };
   }
 
+  async componentDidMount() {
+    try {
+      let notes = await APIService.get('notes/1000');
+      notes = notes.map((note) => ({
+        note: note.note,
+        isBassNote: note.clef === 'BASS',
+        octave: note.octave,
+      }));
+      this.setState({
+        notes,
+        staffNotes: notes.slice(this.startIndex, this.endIndex),
+      });
+    } catch (err) {
+      // console.log(err.message);
+    }
+  }
+
   handleKeyPress = (event) => {
-    const { staffCursorIndex, currNote } = this.state;
+    const { notes, staffCursorIndex, currNote } = this.state;
     const charCode = event.which || event.keyCode;
     const charStr = String.fromCharCode(charCode);
 
-    if (charStr.toUpperCase() === TEST_NOTES[currNote].note.charAt(0)) {
+    if (charStr.toUpperCase() === notes[currNote].note.charAt(0)) {
       if (staffCursorIndex + 1 === MAX_NOTES) {
         this.startIndex += MAX_NOTES;
         this.endIndex += MAX_NOTES;
 
-        if (
-          this.startIndex >= TEST_NOTES.length ||
-          this.endIndex > TEST_NOTES.length
-        ) {
+        if (this.startIndex >= notes.length || this.endIndex > notes.length) {
           return;
         }
 
         this.setState({
           staffCursorIndex: 0,
           currNote: currNote + 1,
-          notes: TEST_NOTES.slice(this.startIndex, this.endIndex),
+          staffNotes: notes.slice(this.startIndex, this.endIndex),
         });
       } else {
         this.setState({
@@ -104,7 +73,7 @@ class NotesComponent extends React.Component {
   };
 
   render() {
-    const { notes, staffCursorIndex, commandLineText } = this.state;
+    const { staffNotes, staffCursorIndex, commandLineText } = this.state;
 
     return (
       <div className="notes-container">
@@ -113,7 +82,7 @@ class NotesComponent extends React.Component {
             <img src={TrebleClef} alt="Treble Clef" />
           </div>
           <StaffComponent
-            notes={notes}
+            notes={staffNotes}
             currentIndex={staffCursorIndex}
             maxNotes={MAX_NOTES}
           />
@@ -125,7 +94,7 @@ class NotesComponent extends React.Component {
           </div>
           <StaffComponent
             useBassNotes
-            notes={notes}
+            notes={staffNotes}
             currentIndex={staffCursorIndex}
             maxNotes={MAX_NOTES}
           />

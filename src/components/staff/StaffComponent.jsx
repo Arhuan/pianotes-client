@@ -56,13 +56,15 @@ class StaffComponent extends React.Component {
     const { currentIndex, maxNotes, notes, useBassNotes } = this.props;
     const staffType = useBassNotes ? 'bass' : 'treble';
 
-    for (let i = 0; i < maxNotes; i += 1) {
+    for (let i = 0; i < maxNotes && i < notes.length; i += 1) {
+      const formattedNote = `${notes[i].note}-${notes[i].octave}`;
+
       cols.push(
         <Col
           key={`${staffType}-${rowNote}-col-${i}`}
           className={`staff-col ${i === currentIndex ? 'cursor' : ''}`}
         >
-          {notes[i].isBassNote === useBassNotes && notes[i].note === rowNote ? (
+          {notes[i].isBassNote === useBassNotes && formattedNote === rowNote ? (
             <div className="note" />
           ) : null}
         </Col>
@@ -88,6 +90,7 @@ StaffComponent.propTypes = {
     PropTypes.shape({
       isBassNote: PropTypes.bool,
       note: PropTypes.string,
+      octave: PropTypes.number,
     })
   ),
   maxNotes: PropTypes.number,
