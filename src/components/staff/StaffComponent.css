@@ -43,20 +43,6 @@
   background-repeat: no-repeat;
 }
 
-.strikethrough-top {
-  background: repeating-linear-gradient(180deg, black 0%, black 100%);
-  background-size: 100% 2px;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-
-.strikethrough-bottom {
-  background: repeating-linear-gradient(180deg, black 0%, black 100%);
-  background-size: 100% 2px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-}
-
 .cursor {
   background: linear-gradient(
     rgba(128, 128, 128, 0.4),

@@ -109,8 +109,6 @@ class StaffComponent extends React.Component {
         case 'E-2':
         case 'C-2':
           return 'strikethrough';
-        case 'D-2':
-          return 'strikethrough top';
         default:
           return '';
       }
@@ -118,8 +116,6 @@ class StaffComponent extends React.Component {
       switch (note) {
         case 'A-5':
           return 'strikethrough';
-        case 'B-5':
-          return 'strikethrough bottom';
         default:
           return '';
       }
