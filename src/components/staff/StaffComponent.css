@@ -36,6 +36,10 @@
   right: 0;
 }
 
+.note-svg.hidden {
+  display: none;
+}
+
 .strikethrough {
   background: repeating-linear-gradient(180deg, black 0%, black 100%);
   background-size: 100% 2px;

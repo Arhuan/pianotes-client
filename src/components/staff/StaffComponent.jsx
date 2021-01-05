@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-update-set-state */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
@@ -51,6 +52,42 @@ class StaffComponent extends React.Component {
     return index % 2 !== 0 && index > 2 && index < 12;
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      useExtraLines: [],
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { notes: prevNotes } = prevProps;
+    const { useBassNotes, maxNotes, notes } = this.props;
+
+    if (JSON.stringify(prevNotes) !== JSON.stringify(notes)) {
+      for (let i = 0; i < notes.length; i += 1) {
+        const formattedNote = `${notes[i].note}-${notes[i].octave}`;
+        const useExtraLines = [];
+
+        for (let j = 0; j < maxNotes; j += 1) {
+          useExtraLines.push(false);
+        }
+
+        if (useBassNotes) {
+          if (formattedNote === 'C-2' || formattedNote === 'D-2') {
+            useExtraLines[i] = true;
+          }
+        } else if (formattedNote === 'B-5') {
+          useExtraLines[i] = true;
+        }
+
+        this.setState({
+          useExtraLines,
+        });
+      }
+    }
+  }
+
   getRows() {
     const rows = [];
     const { useBassNotes } = this.props;
@@ -68,6 +105,7 @@ class StaffComponent extends React.Component {
         </Row>
       );
     }
+
     return rows;
   }
 
@@ -78,18 +116,23 @@ class StaffComponent extends React.Component {
 
     for (let i = 0; i < maxNotes && i < notes.length; i += 1) {
       const formattedNote = `${notes[i].note}-${notes[i].octave}`;
+      const useExtraLineStyles = this.useExtraLineStyles(rowIndex, i);
 
       cols.push(
         <Col
           key={`${staffType}-${rowNote}-col-${i}`}
           className={`staff-col ${i === currentIndex ? 'cursor' : ''}`}
         >
-          {notes[i].isBassNote === useBassNotes && formattedNote === rowNote ? (
-            <div className="note">
+          {(notes[i].isBassNote === useBassNotes &&
+            formattedNote === rowNote) ||
+          useExtraLineStyles ? (
+            <div
+              className={`note ${useExtraLineStyles ? 'strikethrough' : ''}`}
+            >
               <img
                 className={`note-svg ${this.getNoteStrikethroughStyle(
                   formattedNote
-                )}`}
+                )} ${useExtraLineStyles ? 'hidden' : ''}`}
                 src={MusicalNote}
                 alt="note"
               />
@@ -120,6 +163,16 @@ class StaffComponent extends React.Component {
           return '';
       }
     }
+  }
+
+  useExtraLineStyles(rowIndex, colIndex) {
+    const { useBassNotes } = this.props;
+    const { useExtraLines } = this.state;
+
+    if (useBassNotes) {
+      return rowIndex === 13 && useExtraLines[colIndex];
+    }
+    return rowIndex === 1 && useExtraLines[colIndex];
   }
 
   render() {
