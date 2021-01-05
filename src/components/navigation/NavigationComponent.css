@@ -1,28 +1,5 @@
 .nav-header {
   display: flex;
   background-color: white;
-}
-
-h1.ant-typography {
-  margin: 0;
-}
-
-.logo {
-  align-self: center;
-}
-
-.nav-menu {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.nav-menu > .ant-menu > .ant-menu-item {
-  margin: 0;
-  padding: 0 20px;
-}
-
-.nav-menu > .ant-menu > .ant-menu-item > .anticon {
-  font-size: 1.1rem;
-  margin: 0;
+  justify-content: center;
 }
