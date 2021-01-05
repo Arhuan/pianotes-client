@@ -65,13 +65,14 @@ class StaffComponent extends React.Component {
     const { useBassNotes, maxNotes, notes } = this.props;
 
     if (JSON.stringify(prevNotes) !== JSON.stringify(notes)) {
+      const useExtraLines = [];
+
+      for (let j = 0; j < maxNotes; j += 1) {
+        useExtraLines.push(false);
+      }
+
       for (let i = 0; i < notes.length; i += 1) {
         const formattedNote = `${notes[i].note}-${notes[i].octave}`;
-        const useExtraLines = [];
-
-        for (let j = 0; j < maxNotes; j += 1) {
-          useExtraLines.push(false);
-        }
 
         if (useBassNotes) {
           if (formattedNote === 'C-2' || formattedNote === 'D-2') {
@@ -158,6 +159,7 @@ class StaffComponent extends React.Component {
     } else {
       switch (note) {
         case 'A-5':
+        case 'C-4':
           return 'strikethrough';
         default:
           return '';
