@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const HOST_URL = 'http://localhost:8080/';
+const HOST_URL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:8080/'
+    : 'https://pianotes-server.herokuapp.com/bands/';
 
 class APIService {
   static async get(uri) {
