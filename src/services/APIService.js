@@ -3,7 +3,7 @@ import axios from 'axios';
 const HOST_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:8080/'
-    : 'https://pianotes-server.herokuapp.com/bands/';
+    : 'https://pianotes-server.herokuapp.com/';
 
 class APIService {
   static async get(uri) {
