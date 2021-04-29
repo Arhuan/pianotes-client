@@ -1,72 +1,29 @@
-# pianotes-client
+# pianotes
 
-# Getting Started with Create React App
+Oftentimes, when learning to play musical instruments, we find ourselves "memorizing"
+the pieces that we are learning by finding patterns that repeat themselves within the musical piece
+or drilling the pieces into our muscle memory. Because of this beginners can
+find it difficult to learn how to sight-read sheets as it is easy to let your
+body go into auto-pilot as you play the same beginner pieces over and over again.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pianotes is a web application inspired by type-racing applications such as
+[TypeRacer](https://play.typeracer.com/) and [MonkeyType](https://monkeytype.com/)
+to help people learn to sight-read piano (or any other similar instruments!)
+musical sheets by randomly generating notes to help build the intuition
+and fluidity in the language of musical notes.
 
-## Available Scripts
+This project is split into two repositories:
 
-In the project directory, you can run:
+**Server**: https://github.com/Arhuan/pianotes-server 
 
-### `yarn start`
+**Client**: https://github.com/Arhuan/pianotes-client [You are here]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Try it out yourself!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You can find **pianotes** deployed on [Heroku](https://pianotes.herokuapp.com/).
 
-### `yarn test`
+Alternatively, you can grab the code locally and follow the instructions below.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running the app locally
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Will update soon! piantoes is still under development, and features are still being added :)
