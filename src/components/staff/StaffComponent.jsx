@@ -128,7 +128,9 @@ class StaffComponent extends React.Component {
             formattedNote === rowNote) ||
           useExtraLineStyles ? (
             <div
-              className={`note ${useExtraLineStyles ? 'strikethrough' : ''}`}
+              className={`note ${
+                useExtraLineStyles ? 'strikethrough-extra' : ''
+              }`}
             >
               <img
                 className={`note-svg ${this.getNoteStrikethroughStyle(

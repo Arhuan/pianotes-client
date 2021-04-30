@@ -47,6 +47,13 @@
   background-repeat: no-repeat;
 }
 
+.strikethrough-extra {
+  background: repeating-linear-gradient(180deg, black 0%, black 100%);
+  background-size: 10% 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .cursor {
   background: linear-gradient(
     rgba(128, 128, 128, 0.4),
