@@ -8,3 +8,7 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
+@font-face {
+  font-family: 'Chopin-Script';
+  src: local('Chopin-Script'), url(./fonts/chopin-script.regular.ttf) format('truetype');}

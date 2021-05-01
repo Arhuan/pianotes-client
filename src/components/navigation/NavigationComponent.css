@@ -1,5 +1,10 @@
 .nav-header {
   display: flex;
-  background-color: white;
-  justify-content: center;
+  background-color: #f0ead6;
+  justify-content: flex-start;
+}
+
+.logo {
+  font-family: Chopin-Script;
+  font-size: 4rem;
 }
