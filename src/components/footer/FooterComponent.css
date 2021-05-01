@@ -2,4 +2,38 @@
     padding-left: 10%;
     padding-right: 10%;
     background-color: #f0ead6;
+    font-size: 0.75rem;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-content a:hover {
+    color: grey;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 10%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.footer-icon {
+    font-size: 2rem;
 }
