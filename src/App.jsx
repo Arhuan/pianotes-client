@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Layout, { Content, Footer } from 'antd/lib/layout/layout';
+import Layout, { Content } from 'antd/lib/layout/layout';
 import NavigationComponent from './components/navigation/NavigationComponent';
 import Router from './routes/Router';
+import FooterComponent from './components/footer/FooterComponent';
 
 function App() {
   return (
@@ -11,18 +12,7 @@ function App() {
       <Content>
         <Router />
       </Content>
-      <Footer>
-        <div>
-          Icons made by{' '}
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-            Freepik
-          </a>{' '}
-          from{' '}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-      </Footer>
+      <FooterComponent />
     </Layout>
   );
 }
