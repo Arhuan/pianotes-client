@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.clef-divider {
+  background-color: black;
+}
+
 .treble-clef {
   width: 100px;
   text-align: center;

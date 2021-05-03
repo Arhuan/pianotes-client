@@ -13,26 +13,6 @@ function FooterComponent() {
   return (
     <Footer className="footer-container">
       <div className="footer-content">
-        <div>
-          Icons made by{' '}
-          <a
-            href="https://www.flaticon.com/authors/freepik"
-            target="_blank"
-            rel="noreferrer noopener"
-            title="Freepik"
-          >
-            Freepik
-          </a>{' '}
-          from{' '}
-          <a
-            href="https://www.flaticon.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            title="Flaticon"
-          >
-            www.flaticon.com
-          </a>
-        </div>
         <div className="footer-contact">
           <a
             href="https://github.com/Arhuan"

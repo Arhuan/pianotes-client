@@ -91,7 +91,7 @@ class NotesComponent extends React.Component {
             maxNotes={MAX_NOTES}
           />
         </div>
-        <Divider />
+        <Divider className="clef-divider" />
         <div className="staff">
           <div className="bass-clef">
             <img src={BassClef} alt="Bass Clef" />

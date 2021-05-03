@@ -1,0 +1,15 @@
+.about-page {
+    height: 100%;
+    width: 100%;
+    padding: 0 10%;
+    padding-top: 2.5%;
+}
+
+.about-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.about-page a:hover {
+    color: grey;
+}
